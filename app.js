@@ -1,5 +1,5 @@
 Zalo
-url: https://sub4unlock.io/9ziKT.plist
+url: https://raw.githubusercontent.com/Nguyenhuyhoan/Test/main/Hhhu
 
 Facebook
 url: https://sub4unlock.io/9ziKTjh.plist

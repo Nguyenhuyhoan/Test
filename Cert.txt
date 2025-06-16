@@ -1,12 +1,7 @@
-<li> fhjjjj </li>
-Chào bạn, để lấy văn bản từ link GitHub và hiển thị lên web, bạn cần sử dụng JavaScript để thực hiện một yêu cầu fetch.
-
-Tuy nhiên, có một điểm rất quan trọng bạn cần lưu ý:
-
-Link bạn cung cấp (https://github.com/.../blob/main/Cert.txt) là link để xem file trên giao diện của GitHub, nó chứa rất nhiều mã HTML khác chứ không chỉ có nội dung file văn bản.
-
-Để lấy được nội dung thô (raw content) của file, bạn cần dùng link trỏ đến file thô. Bạn có thể lấy link này bằng cách vào trang GitHub trên và nhấn vào nút “Raw”.
-
-Link thô chính xác là: https://raw.githubusercontent.com/Nguyenhuyhoan/Ipaa/main/Cert.txt
-
-Dưới đây là mã HTML và JavaScript hoàn chỉnh để thực hiện việc này.
+- HDFC: 3/1/2026
+- Viettel Group: 7/11/2025
+- Toyota: 7/10/2025
+- VN Technological: 13/9/2025
+- Kotak: 28/7/2025
+- National: 8/7/2025
+- VN Electricity: 26/6/2025

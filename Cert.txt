@@ -1,7 +1,0 @@
-- HDFC: 3/1/2026
-- Viettel Group: 7/11/2025
-- Toyota: 7/10/2025
-- VN Technological: 13/9/2025
-- Kotak: 28/7/2025
-- National: 8/7/2025
-- VN Electricity: 26/6/2025

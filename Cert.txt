@@ -1,4 +1,4 @@
-<li> fhjjjj </>
+<li> fhjjjj </li>
 Chào bạn, để lấy văn bản từ link GitHub và hiển thị lên web, bạn cần sử dụng JavaScript để thực hiện một yêu cầu fetch.
 
 Tuy nhiên, có một điểm rất quan trọng bạn cần lưu ý:

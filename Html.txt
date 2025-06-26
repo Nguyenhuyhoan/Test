@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chào mừng đến với Tech Hub, nơi cung cấp các công cụ, hướng dẫn và tài nguyên số hàng đầu. Khám phá giải pháp sáng tạo cho các dự án của bạn.">
+<title data-translate-key="page_title">Tech Hub - Giải Pháp Công Nghệ Của Bạn</title>
+<link rel="icon" type="image/png" sizes="16x16" href="https://tech-hub-demo.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tech-hub-demo.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tech-hub-demo.netlify.app/apple-touch-icon-180x180.png">
+
+<style>
+:root {
+--primary-white: #FFFFFF;
+--off-white-light: #F8F9FA;
+--off-white-medium: #E9ECEF;
+--accent-color: #007bff;
+--secondary-color: #ff6f61;
+--tertiary-color: #6f42c1;
+--custom-green-color: #28a745;
+--background-color: #f0f4f8;
+--border-radius: 15px;
+--box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+--text-color-dark: #343A40;
+--text-color-light: #6C757D;
+--hero-background: linear-gradient(to bottom, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.5)), url('https://picsum.photos/1200/600?random=hero');
+--hero-text-color: #FFFFFF;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+background: linear-gradient(to right, #f3e0ff, #e0f7ff);
+color: var(--text-color-dark);
+line-height: 1.6;
+overflow-x: hidden;
+}
+.hero {
+max-width: 95%;
+height: 200px;
+margin: 7px auto 0;
+border-radius: var(--border-radius);
+box-shadow: var(--box-shadow);
+background: var(--hero-background);
+text-align: center;
+position: relative;
+overflow: hidden;
+animation: fadeIn 1s ease forwards;
+color: var(--hero-text-color);
+background-size: cover;
+background-position: center;
+padding: 60px 20px;
+}
+.hero h1 {
+font-size: 2.2em;
+margin-bottom: 15px;
+animation: slideIn 1s ease forwards .2s;
+opacity: 0;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.hero p {
+font-size: 1.1em;
+margin-bottom: 25px;
+animation: slideIn 1.2s ease forwards .4s;
+opacity: 0;
+}
+.site-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 4px 14px;
+width: 100%;
+max-width: 94%;
+margin: 5px auto 0 auto;
+min-height: 60px;
+z-index: 1000;
+position: relative;
+background-color: var(--primary-white);
+border-radius: var(--border-radius);
+box-shadow: var(--box-shadow);
+}
+.menu-toggle {
+background-color: transparent;
+color: var(--accent-color);
+border: none;
+padding: 10px;
+cursor: pointer;
+font-size: 1.2em;
+display: block;
+z-index: 1001;
+order: -1;
+transition: transform 0.3s ease, color 0.3s ease;
+}
+.menu-toggle:hover {
+transform: rotate(90deg);
+color: #0056b3;
+}
+nav {
+display: none;
+position: absolute;
+top: calc(100% + 10px);
+left: 50%;
+width: 90%;
+max-width: 320px;
+background-color: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+flex-direction: column;
+border-radius: var(--border-radius);
+padding: 8px;
+opacity: 0;
+visibility: hidden;
+transform: translateX(-50%) translateY(-15px) scale(0.95);
+transform-origin: top center;
+transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+z-index: 1100;
+}
+nav.nav-open {
+display: flex;
+opacity: 1;
+visibility: visible;
+transform: translateX(-50%) translateY(0) scale(1);
+}
+nav ul {
+list-style: none;
+display: flex;
+align-items: center;
+margin: 0;
+padding: 0;
+flex-direction: column;
+width: 100%;
+gap: 4px;
+}
+nav ul li {
+margin: 0;
+width: 100%;
+opacity: 0;
+transform: translateX(-15px);
+transition: opacity 0.3s ease, transform 0.3s ease;
+}
+nav.nav-open ul li {
+opacity: 1;
+transform: translateX(0);
+}
+nav.nav-open ul li:nth-child(1) { transition-delay: 0.05s; }
+nav.nav-open ul li:nth-child(2) { transition-delay: 0.1s; }
+nav.nav-open ul li:nth-child(3) { transition-delay: 0.15s; }
+nav.nav-open ul li:nth-child(4) { transition-delay: 0.2s; }
+nav.nav-open ul li:nth-child(5) { transition-delay: 0.25s; }
+nav.nav-open ul li:nth-child(6) { transition-delay: 0.3s; }
+nav.nav-open ul li:nth-child(7) { transition-delay: 0.35s; }
+nav.nav-open ul li:nth-child(8) { transition-delay: 0.4s; }
+nav.nav-open ul li:nth-child(9) { transition-delay: 0.45s; }
+nav ul li a {
+text-decoration: none;
+color: var(--text-color-dark);
+white-space: nowrap;
+display: block;
+padding: 12px 15px;
+border-radius: 10px;
+font-weight: 500;
+text-align: left;
+transition: background-color 0.2s ease, color 0.2s ease;
+position: relative;
+}
+nav ul li a:hover {
+background-color: rgba(0, 123, 255, 0.1);
+color: var(--accent-color);
+}
+nav ul li a.active {
+background-color: rgba(0, 123, 255, 0.15);
+color: var(--accent-color);
+font-weight: 600;
+}
+nav ul li a.active::before {
+content: '●';
+color: var(--accent-color);
+font-size: 0.7em;
+margin-right: 10px;
+vertical-align: middle;
+}
+#lang-switcher-container {
+display: flex;
+gap: 8px;
+}
+.lang-btn {
+background: var(--primary-white);
+border: 1px solid var(--off-white-medium);
+color: var(--accent-color);
+font-weight: 700;
+cursor: pointer;
+font-family: inherit;
+font-size: 0.9em;
+border-radius: 6px;
+text-align: center;
+transition: all 0.2s ease;
+box-shadow: 0 10px 20px rgba(255, 0, 255, 0.25), 0 6px 6px rgba(255, 0, 255, 0.2);
+flex: 1 1 0;
+height: 32px;
+width: 45px;
+}
+.lang-btn:hover {
+background-color: var(--off-white-light);
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.lang-btn.active {
+background-color: #007bff;
+color: var(--primary-white);
+border: 1px;
+border-color: #32c453;
+box-shadow: 0 10px 20px rgba(0, 123, 255, 0.25), 0 6px 6px rgba(0, 123, 255, 0.2);
+}
+.features, .gallery {
+padding: 30px 15px;
+text-align: center;
+}
+#features {
+margin-top: 20px;
+}
+.features h2, .gallery h2 {
+margin-bottom: 40px;
+font-size: 2.2em;
+position: relative;
+color: var(--accent-color);
+}
+.features h2::after, .gallery h2::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 60px;
+height: 3px;
+background-color: var(--accent-color);
+}
+.guide p, .guide ul, .guide ol {
+margin-bottom: 15px;
+}
+.guide ul, .guide ol {
+padding-left: 25px;
+}
+.guide strong {
+color: var(--text-color-dark);
+}
+.guide img {
+border-radius: var(--border-radius);
+background-color: rgba(255, 255, 255, 0.7);
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+padding: 1px;
+margin: 0 auto 15px auto;
+}
+.gallery-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 15px;
+}
+.gallery-item {
+position: relative;
+overflow: hidden;
+border-radius: var(--border-radius);
+aspect-ratio: 3 / 2;
+opacity: 0;
+transform: translateY(20px);
+}
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: var(--border-radius);
+transition: transform 0.3s, opacity 0.4s ease-in-out;
+}
+.gallery-item img:hover {
+transform: scale(1.05);
+}
+img {
+max-width: 100%;
+height: auto;
+display: block;
+}
+footer {
+text-align: center;
+padding: 30px 20px;
+background-color: var(--primary-white);
+border-top-left-radius: var(--border-radius);
+border-top-right-radius: var(--border-radius);
+box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+margin-top: 40px;
+}
+.gallery-item.is-visible {
+opacity: 1;
+transform: translateY(0);
+transition-property: opacity, transform;
+transition-duration: 0.5s;
+transition-timing-function: ease-out;
+}
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+@keyframes slideIn {
+from { transform: translateY(-20px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 12px 8px;
+font-size: 1.1em;
+font-weight: bold;
+text-decoration: none;
+color: var(--primary-white);
+border-radius: var(--border-radius);
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+text-align: center;
+line-height: 1.5;
+width: 100%;
+box-sizing: border-box;
+}
+.btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+opacity: 0.9;
+}
+.btn:active {
+transform: translateY(0px) scale(0.98);
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+.youtube-button-container {
+text-align: center;
+margin: 25px 0;
+}
+.btn-youtube {
+background-color: #FF0000;
+color: var(--primary-white);
+}
+.btn-youtube:hover {
+background-color: #CC0000;
+}
+.btn-youtube svg {
+width: 1.2em;
+height: 1.2em;
+margin-right: 0.6em;
+display: inline-block;
+vertical-align: middle;
+}
+.guide-actions {
+display: flex;
+flex-direction: column;
+align-items: stretch;
+gap: 15px;
+max-width: 700px;
+margin-left: auto;
+margin-right: auto;
+padding: 0 5px;
+margin-top: 0;
+}
+.btn-primary {
+background-color: var(--accent-color);
+}
+.btn-primary:hover {
+background-color: #0056b3;
+}
+.btn-secondary {
+background-color: #ff00ff;
+}
+.btn-secondary:hover {
+background-color: #e65c4f;
+}
+.btn-tertiary {
+background-color: var(--tertiary-color);
+}
+.btn-tertiary:hover {
+background-color: #5a379b;
+}
+.btn-green {
+background-color: var(--custom-green-color);
+}
+.btn-green:hover {
+background-color: #218838;
+}
+.plain-link {
+color: inherit;
+font-size: inherit;
+text-decoration: none;
+}
+.hidden-textarea { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; opacity: 0; }
+.tab-container {
+background-color: var(--primary-white);
+border-radius: var(--border-radius);
+box-shadow: var(--box-shadow);
+padding: 15px;
+overflow: hidden;
+}
+.tab-buttons {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 10px;
+justify-content: center;
+}
+.tab-button {
+padding: 18px 10px;
+cursor: pointer;
+border: 2px solid var(--off-white-medium);
+background-color: var(--primary-white);
+border-radius: var(--border-radius);
+font-size: 1.05em;
+font-weight: 500;
+transition: all 0.3s ease;
+text-align: center;
+}
+.tab-button:hover {
+background-color: var(--off-white-light);
+transform: translateY(-3px);
+}
+.tab-button[data-tab="1"] {
+color: #ff00ff;
+box-shadow: 0 10px 20px rgba(255, 0, 255, 0.25), 0 6px 6px rgba(255, 0, 255, 0.2);
+}
+.tab-button[data-tab="2"] {
+color: var(--tertiary-color);
+box-shadow: 0 10px 20px rgba(111, 66, 193, 0.25), 0 6px 6px rgba(111, 66, 193, 0.2);
+}
+.tab-button[data-tab="3"] {
+color: var(--accent-color);
+box-shadow: 0 10px 20px rgba(0, 123, 255, 0.25), 0 6px 6px rgba(0, 123, 255, 0.2);
+}
+.tab-button[data-tab="4"] {
+color: var(--custom-green-color);
+box-shadow: 0 10px 20px rgba(40, 167, 69, 0.25), 0 6px 6px rgba(40, 167, 69, 0.2);
+}
+.tab-button[data-tab="1"]:hover {
+box-shadow: 0 15px 25px rgba(255, 0, 255, 0.3), 0 8px 10px rgba(255, 0, 255, 0.22);
+}
+.tab-button[data-tab="2"]:hover {
+box-shadow: 0 15px 25px rgba(111, 66, 193, 0.3), 0 8px 10px rgba(111, 66, 193, 0.22);
+}
+.tab-button[data-tab="3"]:hover {
+box-shadow: 0 15px 25px rgba(0, 123, 255, 0.3), 0 8px 10px rgba(0, 123, 255, 0.22);
+}
+.tab-button[data-tab="4"]:hover {
+box-shadow: 0 15px 25px rgba(40, 167, 69, 0.3), 0 8px 10px rgba(40, 167, 69, 0.22);
+}
+.tab-button.active {
+color: var(--primary-white);
+transform: translateY(-1px);
+}
+.tab-button[data-tab="1"].active {
+background-color: #ff00ff;
+border-color: #e600e6;
+box-shadow: 0 10px 20px rgba(255, 0, 255, 0.25), 0 6px 6px rgba(255, 0, 255, 0.2);
+}
+.tab-button[data-tab="2"].active {
+background-color: var(--tertiary-color);
+border-color: #5a379b;
+box-shadow: 0 10px 20px rgba(111, 66, 193, 0.25), 0 6px 6px rgba(111, 66, 193, 0.2);
+}
+.tab-button[data-tab="3"].active {
+background-color: var(--accent-color);
+border-color: #3395ff;
+box-shadow: 0 10px 20px rgba(0, 123, 255, 0.25), 0 6px 6px rgba(0, 123, 255, 0.2);
+}
+.tab-button[data-tab="4"].active {
+background-color: var(--custom-green-color);
+border-color: #32c453;
+box-shadow: 0 10px 20px rgba(40, 167, 69, 0.25), 0 6px 6px rgba(40, 167, 69, 0.2);
+}
+.tab-separator {
+border: none;
+height: 1px;
+background-color: var(--off-white-medium);
+margin: 20px 0;
+}
+.tab-content-panel {
+display: none;
+background-color: transparent;
+box-shadow: none;
+border-radius: 0;
+animation: fadeIn 0.5s ease;
+min-height: 250px;
+text-align: left;
+}
+.tab-content-panel.active {
+display: block;
+}
+.tab-content-panel .guide {
+display: block;
+opacity: 1;
+max-height: none;
+margin: 0;
+padding: 0;
+box-shadow: none;
+background-color: transparent;
+max-width: 100%;
+}
+.tab-content-panel h3 {
+text-align: center;
+margin-bottom: 20px;
+font-size: 1.4em;
+}
+.app-list {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 15px;
+}
+.app-item.last-odd-item {
+grid-column: 1 / -1;
+display: flex;
+justify-content: center;
+}
+.app-item.last-odd-item .btn {
+width: 65%;
+flex-grow: 0;
+}
+.btn-color-1 {
+background-color: #ff00ff;
+}
+.btn-color-2 {
+background-color: var(--tertiary-color);
+}
+.btn-color-3 {
+background-color: var(--accent-color);
+}
+.btn-color-4 {
+background-color: var(--custom-green-color);
+}
+#message {
+text-align: center;
+font-size: 1.1em;
+color: #888;
+padding: 20px;
+}
+#tab-content-4 .btn {
+background-color: var(--primary-white);
+border: 2px solid var(--off-white-medium);
+transition: all 0.25s ease-out;
+font-weight: 500;
+}
+#tab-content-4 .btn:hover {
+background-color: var(--off-white-light);
+transform: translateY(-3px);
+opacity: 1;
+}
+#tab-content-4 .btn:active {
+transform: translateY(0px) scale(0.98);
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+#tab-content-4 .btn-color-1,
+#tab-content-4 .btn-primary {
+color: #ff00ff;
+box-shadow: 0 10px 20px rgba(255, 0, 255, 0.25), 0 6px 6px rgba(255, 0, 255, 0.2);
+}
+#tab-content-4 .btn-color-1:hover,
+#tab-content-4 .btn-primary:hover {
+box-shadow: 0 15px 25px rgba(255, 0, 255, 0.3), 0 8px 10px rgba(255, 0, 255, 0.22);
+}
+#tab-content-4 .btn-color-2,
+#tab-content-4 .btn-secondary {
+color: var(--tertiary-color);
+box-shadow: 0 10px 20px rgba(111, 66, 193, 0.25), 0 6px 6px rgba(111, 66, 193, 0.2);
+}
+#tab-content-4 .btn-color-2:hover,
+#tab-content-4 .btn-secondary:hover {
+box-shadow: 0 15px 25px rgba(111, 66, 193, 0.3), 0 8px 10px rgba(111, 66, 193, 0.22);
+}
+#tab-content-4 .btn-color-3,
+#tab-content-4 .btn-tertiary {
+color: var(--accent-color);
+box-shadow: 0 10px 20px rgba(0, 123, 255, 0.25), 0 6px 6px rgba(0, 123, 255, 0.2);
+}
+#tab-content-4 .btn-color-3:hover,
+#tab-content-4 .btn-tertiary:hover {
+box-shadow: 0 15px 25px rgba(0, 123, 255, 0.3), 0 8px 10px rgba(0, 123, 255, 0.22);
+}
+#tab-content-4 .btn-color-4 {
+color: var(--custom-green-color);
+box-shadow: 0 10px 20px rgba(40, 167, 69, 0.25), 0 6px 6px rgba(40, 167, 69, 0.2);
+}
+#tab-content-4 .btn-color-4:hover {
+box-shadow: 0 15px 25px rgba(40, 167, 69, 0.3), 0 8px 10px rgba(40, 167, 69, 0.22);
+}
+#show-info-trigger {
+position: fixed;
+top: 50%;
+right: 0;
+transform: translateY(-50%);
+width: 100px;
+height: 100px;
+background-color: transparent;
+border: none;
+cursor: pointer;
+z-index: 999;
+-webkit-tap-highlight-color: transparent;
+}
+#visitor-info-popup {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.6);
+z-index: 1005;
+justify-content: center;
+align-items: center;
+}
+#visitor-info-box {
+text-align: center;
+font-family: sans-serif;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 8px;
+background-color: #f9f9f9;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+<main>
+<section id="home" class="hero">
+<h1 data-translate-key="hero_title">TECH HUB</h1>
+<p><a href="#" class="plain-link" data-translate-key="hero_subtitle">Cánh Cổng Dẫn Lối Tới Tương Lai</a></p>
+</section>
+
+<button id="show-info-trigger" title="Nhấn và giữ để xem thông tin"></button>
+<div id="visitor-info-popup">
+<div id="visitor-info-box">
+<span>
+Hôm nay: <b id="today-visitors">...</b>
+</span>
+<span style="margin-left: 15px;">
+Tổng: <b id="total-visitors">...</b>
+</span></div></div>
+
+<header class="site-header">
+<button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</button>
+<nav>
+<ul>
+<li><a href="#home" class="active" data-translate-key="nav_home">Trang Chủ</a></li>
+<li><a href="#features" data-translate-key="nav_features">Tính Năng</a></li>
+<li><a href="#gallery" data-translate-key="nav_gallery">Thư Viện</a></li>
+<li><a href="#" data-translate-key="nav_tools">Công Cụ</a></li>
+<li><a href="#" data-translate-key="nav_guides">Hướng Dẫn</a></li>
+<li><a href="#" data-translate-key="nav_support">Hỗ Trợ</a></li>
+</ul>
+</nav>
+<div id="lang-switcher-container">
+<button class="lang-btn" data-lang="vi">VI</button>
+<button class="lang-btn" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="zh">ZH</button>
+</div>
+</header>
+
+<section id="features" class="features">
+<h2 data-translate-key="section_title_features">Các Tính Năng Cốt Lõi</h2>
+<div class="tab-container">
+<div class="tab-buttons">
+<button class="tab-button active" data-tab="1" data-translate-key="tab_title_about">📝 Về Chúng Tôi</button>
+<button class="tab-button" data-tab="2" data-translate-key="tab_title_updates">📜 Nhật Ký Cập Nhật</button>
+<button class="tab-button" data-tab="3" data-translate-key="tab_title_video">🖼️ Hướng Dẫn</button>
+<button class="tab-button" data-tab="4" data-translate-key="tab_title_downloads">🚀 Tải Về</button>
+</div>
+<hr class="tab-separator">
+<div class="tab-content-panels">
+<div id="tab-content-1" class="tab-content-panel active">
+<h3 class="title-secondary" data-translate-key="tab_title_about">GIỚI THIỆU TECH HUB</h3>
+<div class="guide">
+<p data-translate-key="card_info_guide1">Tech Hub là một không gian sáng tạo dành riêng cho những người đam mê công nghệ. Chúng tôi cung cấp các công cụ, tài nguyên và kiến thức để giúp bạn biến ý tưởng thành hiện thực.</p>
+<strong data-translate-key="card_info_features_title">Chúng tôi cung cấp:</strong>
+<ul data-translate-key="card_info_features_list">
+</ul>
+<p data-translate-key="card_info_guide3">Hãy cùng Tech Hub khám phá những giới hạn mới của công nghệ và sáng tạo không ngừng.</p>
+</div>
+</div>
+<div id="tab-content-2" class="tab-content-panel">
+<h3 class="title-tertiary" data-translate-key="tab_title_updates">NHẬT KÝ CẬP NHẬT</h3>
+<div class="guide">
+<p data-translate-key="card_updates_intro">Chúng tôi liên tục cải tiến và bổ sung các tài nguyên mới. Dưới đây là những cập nhật gần đây nhất:</p>
+<pre id="content" style="font-family: Arial, sans-serif; color: #6f42c1;">Đang tải nhật ký cập nhật...</pre>
+</div>
+</div>
+<div id="tab-content-3" class="tab-content-panel">
+<h3 class="title-accent" data-translate-key="tab_title_video">VIDEO HƯỚNG DẪN</h3>
+<div class="guide">
+<div style="text-align:center;">
+<p data-translate-key="card_video_guide1">Xem video và hình ảnh để hiểu rõ hơn về cách sử dụng các công cụ của chúng tôi:</p>
+</div>
+<div class="youtube-button-container">
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-youtube">
+<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 42.276 48.284 48.597C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.322 42.003-24.947 48.284-48.597 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.203z"></path></svg>
+Mở YouTube
+</a>
+</div>
+<div style="text-align:center; margin-top: 20px;">
+</div>
+<img src="https://picsum.photos/750/1334?random=11" alt="Ảnh hướng dẫn 1" loading="lazy" decoding="async" width="750" height="1334">
+<img src="https://picsum.photos/750/1334?random=12" alt="Ảnh hướng dẫn 2" loading="lazy" decoding="async" width="750" height="1334">
+<img src="https://picsum.photos/750/1334?random=13" alt="Ảnh hướng dẫn 3" loading="lazy" decoding="async" width="750" height="1334">
+</div>
+</div>
+<div id="tab-content-4" class="tab-content-panel">
+<h3 class="title-custom-green" data-translate-key="tab_title_downloads">TẢI VỀ</h3>
+<div class="guide">
+<div class="guide-actions">
+<h3 data-translate-key="step1_title">Gói Tài Nguyên</h3>
+<a href="#" class="btn btn-primary" data-translate-key="btn_step1_download">Tải Gói Tài Nguyên Cơ Bản</a>
+<hr class="tab-separator">
+<h3 data-translate-key="step2_title">Công Cụ & Tiện Ích</h3>
+<div id="app-container">
+<p id="message">Đang tải danh sách công cụ...</p>
+</div>
+<hr class="tab-separator">
+<h3 data-translate-key="step3_title">Mã API</h3>
+<textarea id="apiContentStore" class="hidden-textarea" aria-hidden="true"></textarea>
+<button id="copyApiButton" class="btn btn-tertiary" role="button" tabindex="0" data-translate-key="btn_step3_copy">Sao Chép Mã Mẫu</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="gallery" class="gallery">
+<h2 data-translate-key="section_title_gallery">Không Gian Sáng Tạo</h2>
+<div class="gallery-grid">
+<div class="gallery-item"><img src="https://picsum.photos/300/200?random=1" alt="Gallery Image 1" loading="lazy" decoding="async" width="300" height="200"></div>
+<div class="gallery-item"><img src="https://picsum.photos/300/200?random=8" alt="Gallery Image 8" loading="lazy" decoding="async" width="300" height="200"></div>
+<div class="gallery-item"><img src="https://picsum.photos/300/200?random=10" alt="Gallery Image 10" loading="lazy" decoding="async" width="300" height="200"></div>
+</div>
+</section>
+</main>
+
+<footer>
+<p>&copy; <span id="currentYear"></span> <span data-translate-key="footer_text">Tech Hub Solutions Inc.</span></p>
+</footer>
+
+<script>
+const translations = {
+en: {
+page_title: "Tech Hub - Your Technology Solutions",
+hero_title: "TECH HUB",
+hero_subtitle: "Your Gateway to the Future",
+nav_home: "Home",
+nav_features: "Features",
+nav_gallery: "Gallery",
+nav_tools: "Tools",
+nav_guides: "Guides",
+nav_support: "Support",
+section_title_features: "Our Core Features",
+tab_title_about: "📝 About Us",
+tab_title_updates: "📜 Update Log",
+tab_title_video: "🖼️ Tutorials",
+tab_title_downloads: "🚀 Downloads",
+card_info_guide1: "Tech Hub is a creative space dedicated to technology enthusiasts. We provide the tools, resources, and knowledge to help you turn ideas into reality.",
+card_info_features_title: "We provide:",
+card_info_features_list: `<li>Useful digital tools.</li><li>Detailed step-by-step guides.</li><li>A library of creative resources.</li><li>A community for sharing and learning.</li>`,
+card_info_guide3: "Let's explore the new frontiers of technology and innovate endlessly with Tech Hub.",
+card_updates_intro: "We are constantly improving and adding new resources. Here are the latest updates:",
+card_video_guide1: "Watch the videos and see the pictures to better understand how to use our tools:",
+step1_title: "Resource Pack",
+btn_step1_download: "Download Basic Resource Pack",
+step2_title: "Tools & Utilities",
+step3_title: "API Key",
+btn_step3_copy: "Copy Sample API Key",
+section_title_gallery: "Creative Showcase",
+footer_text: "Tech Hub Solutions Inc.",
+copy_alert: "Sample API Key copied to clipboard!",
+},
+vi: {
+page_title: "Tech Hub - Giải Pháp Công Nghệ Của Bạn",
+hero_title: "TECH HUB",
+hero_subtitle: "Cánh Cổng Dẫn Lối Tới Tương Lai",
+nav_home: "Trang Chủ",
+nav_features: "Tính Năng",
+nav_gallery: "Thư Viện",
+nav_tools: "Công Cụ",
+nav_guides: "Hướng Dẫn",
+nav_support: "Hỗ Trợ",
+section_title_features: "Các Tính Năng Cốt Lõi",
+tab_title_about: "📝 Về Chúng Tôi",
+tab_title_updates: "📜 Nhật Ký Cập Nhật",
+tab_title_video: "🖼️ Hướng Dẫn",
+tab_title_downloads: "🚀 Tải Về",
+card_info_guide1: "Tech Hub là một không gian sáng tạo dành riêng cho những người đam mê công nghệ. Chúng tôi cung cấp các công cụ, tài nguyên và kiến thức để giúp bạn biến ý tưởng thành hiện thực.",
+card_info_features_title: "Chúng tôi cung cấp:",
+card_info_features_list: `<li>Các công cụ số hữu ích.</li><li>Hướng dẫn chi tiết từng bước.</li><li>Thư viện tài nguyên sáng tạo.</li><li>Cộng đồng để chia sẻ và học hỏi.</li>`,
+card_info_guide3: "Hãy cùng Tech Hub khám phá những giới hạn mới của công nghệ và sáng tạo không ngừng.",
+card_updates_intro: "Chúng tôi liên tục cải tiến và bổ sung các tài nguyên mới. Dưới đây là những cập nhật gần đây nhất:",
+card_video_guide1: "Xem video và hình ảnh để hiểu rõ hơn về cách sử dụng các công cụ của chúng tôi:",
+step1_title: "Gói Tài Nguyên",
+btn_step1_download: "Tải Gói Tài Nguyên Cơ Bản",
+step2_title: "Công Cụ & Tiện Ích",
+step3_title: "Mã API",
+btn_step3_copy: "Sao Chép Mã API Mẫu",
+section_title_gallery: "Không Gian Sáng Tạo",
+footer_text: "Công Ty TNHH Giải Pháp Tech Hub.",
+copy_alert: "Đã sao chép Mã API mẫu!",
+},
+zh: {
+page_title: "科技中心 - 您的技术解决方案",
+hero_title: "科技中心",
+hero_subtitle: "通往未来的门户",
+nav_home: "主页",
+nav_features: "功能",
+nav_gallery: "画廊",
+nav_tools: "工具",
+nav_guides: "指南",
+nav_support: "支持",
+section_title_features: "我们的核心功能",
+tab_title_about: "📝 关于我们",
+tab_title_updates: "📜 更新日志",
+tab_title_video: "🖼️ 教程",
+tab_title_downloads: "🚀 下载",
+card_info_guide1: "科技中心是专为技术爱好者打造的创意空间。我们提供工具、资源和知识，助您将想法变为现实。",
+card_info_features_title: "我们提供：",
+card_info_features_list: `<li>有用的数字工具。</li><li>详细的分步指南。</li><li>创意资源库。</li><li>分享和学习的社区。</li>`,
+card_info_guide3: "与科技中心一起，探索技术的新领域，不断创新。",
+card_updates_intro: "我们不断改进并添加新资源。以下是最新更新：",
+card_video_guide1: "观看视频和图片，更好地了解如何使用我们的工具：",
+step1_title: "资源包",
+btn_step1_download: "下载基础资源包",
+step2_title: "工具和实用程序",
+step3_title: "API 密钥",
+btn_step3_copy: "复制示例 API 密钥",
+section_title_gallery: "创意展示",
+footer_text: "科技中心解决方案公司。",
+copy_alert: "示例 API 密钥已复制到剪贴板！",
+}
+};
+
+const langContainer = document.getElementById('lang-switcher-container');
+const languages = ['vi', 'en', 'zh'];
+function switchLanguage(lang) {
+if (!languages.includes(lang)) return;
+document.documentElement.lang = lang;
+localStorage.setItem('language', lang);
+document.querySelectorAll('[data-translate-key]').forEach(el => {
+const key = el.dataset.translateKey;
+if (translations[lang] && translations[lang][key]) {
+if (key === 'card_info_features_list') {
+el.innerHTML = translations[lang][key];
+} else {
+el.textContent = translations[lang][key];
+}
+}
+});
+langContainer.querySelectorAll('.lang-btn').forEach(btn => {
+btn.classList.remove('active');
+if (btn.dataset.lang === lang) {
+btn.classList.add('active');
+}
+});
+}
+langContainer.addEventListener('click', (e) => {
+const targetButton = e.target.closest('.lang-btn');
+if (targetButton) {
+const lang = targetButton.dataset.lang;
+switchLanguage(lang);
+}
+});
+document.addEventListener('DOMContentLoaded', () => {
+const savedLang = localStorage.getItem('language') || 'vi';
+switchLanguage(savedLang);
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+if (menuToggle && nav) {
+menuToggle.addEventListener('click', (event) => {
+event.stopPropagation();
+const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+menuToggle.setAttribute('aria-expanded', !isExpanded);
+nav.classList.toggle('nav-open');
+});
+document.addEventListener('click', (event) => {
+if (nav.classList.contains('nav-open') && !menuToggle.contains(event.target) && !nav.contains(event.target)) {
+nav.classList.remove('nav-open');
+menuToggle.setAttribute('aria-expanded', 'false');
+}
+});
+}
+const tabContainer = document.querySelector('.tab-container');
+if (tabContainer) {
+const tabButtons = tabContainer.querySelector('.tab-buttons');
+const contentPanels = tabContainer.querySelectorAll('.tab-content-panel');
+tabButtons.addEventListener('click', (e) => {
+const clickedButton = e.target.closest('.tab-button');
+if (!clickedButton) return;
+tabButtons.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+clickedButton.classList.add('active');
+contentPanels.forEach(panel => panel.classList.remove('active'));
+const tabNumber = clickedButton.dataset.tab;
+const targetPanel = document.getElementById(`tab-content-${tabNumber}`);
+if (targetPanel) {
+targetPanel.classList.add('active');
+}
+});
+}
+const galleryImageElements = document.querySelectorAll('.gallery-item img');
+const imageChangeIntervalMs = 3500;
+const fadeEffectDurationMs = 400;
+function getNewRandomImageUrl(currentSrc) {
+let newImageUrl;
+let attempts = 0;
+const maxAttempts = galleryImageElements.length > 1 ? galleryImageElements.length * 2 : 10;
+const basePicsumUrl = "https://picsum.photos/300/200";
+do {
+const cacheBuster = Math.floor(Math.random() * 10000);
+newImageUrl = `${basePicsumUrl}?random=${cacheBuster}`;
+attempts++;
+} while (newImageUrl === currentSrc && attempts < maxAttempts && galleryImageElements.length > 1);
+return newImageUrl;
+}
+function changeOneGalleryImage() {
+if (galleryImageElements.length === 0) return;
+const randomIndex = Math.floor(Math.random() * galleryImageElements.length);
+const imgToChange = galleryImageElements[randomIndex];
+const currentSrc = imgToChange.src;
+imgToChange.style.opacity = '0';
+setTimeout(() => {
+const newImageUrl = getNewRandomImageUrl(currentSrc);
+const tempImage = new Image();
+tempImage.onload = () => {
+imgToChange.src = newImageUrl;
+imgToChange.style.opacity = '1';
+};
+tempImage.onerror = () => {
+console.warn(`Error loading image: ${newImageUrl}. Keeping old image.`);
+imgToChange.style.opacity = '1';
+};
+tempImage.src = newImageUrl;
+}, fadeEffectDurationMs);
+}
+if (galleryImageElements.length > 0) {
+setInterval(changeOneGalleryImage, imageChangeIntervalMs);
+}
+const animatedElements = document.querySelectorAll('.gallery-item');
+if ('IntersectionObserver' in window) {
+const observerOptions = {
+root: null,
+rootMargin: '0px',
+threshold: 0.1
+};
+const observerCallback = (entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+let delay = 0;
+let transitionDelays = [];
+const itemsInParent = Array.from(entry.target.parentElement.children).filter(child => child.classList.contains('gallery-item'));
+const itemIndex = itemsInParent.indexOf(entry.target);
+if (itemIndex !== -1) {
+delay = itemIndex * 100;
+}
+transitionDelays = [`${delay}ms`, `${delay}ms`];
+entry.target.style.transitionDelay = transitionDelays.join(', ');
+entry.target.classList.add('is-visible');
+observer.unobserve(entry.target);
+}
+});
+};
+const animationObserver = new IntersectionObserver(observerCallback, observerOptions);
+animatedElements.forEach(el => {
+animationObserver.observe(el);
+});
+} else {
+animatedElements.forEach(el => {
+el.classList.add('is-visible');
+});
+}
+const currentYearSpan = document.getElementById('currentYear');
+if (currentYearSpan) {
+currentYearSpan.textContent = new Date().getFullYear();
+}
+});
+</script>
+
+<!☘️ Sao chép mã>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const copyButton = document.getElementById('copyApiButton');
+    const apiContentStore = document.getElementById('apiContentStore');
+    const sampleApiKey = 'TH-xxxxxxxx-SAMPLE-KEY-xxxx-xxxxxxxx';
+    if (apiContentStore) {
+        apiContentStore.value = sampleApiKey;
+    }
+
+    if (copyButton) {
+        copyButton.addEventListener('click', function () {
+            const codeToCopy = apiContentStore.value;
+            if (!codeToCopy) return;
+
+            navigator.clipboard.writeText(codeToCopy).then(() => {
+                const currentLang = document.documentElement.lang || 'vi';
+                alert(translations[currentLang].copy_alert || "Copied!");
+            }).catch(err => {
+                console.error('Không thể sao chép: ', err);
+            });
+        });
+    }
+});
+</script>
+
+<!☘️ Chèn danh sách công cụ >
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const appContainer = document.getElementById('app-container');
+    const messageElement = document.getElementById('message');
+
+   
+    const apps = [
+        { name: "Tải Công Cụ A", url: "#" },
+        { name: "Tải Plugin B", url: "#" },
+        { name: "Tải Tiện Ích C", url: "#" },
+        { name: "Tải Gói Mở Rộng D", url: "#" },
+        { name: "Tải Driver E", url: "#" }
+    ];
+
+    if (messageElement) {
+        messageElement.remove();
+    }
+
+    const appList = document.createElement('div');
+    appList.className = 'app-list';
+    const colorClasses = ['btn-color-1', 'btn-color-2', 'btn-color-3', 'btn-color-4'];
+
+    apps.forEach((app, index) => {
+        const listItem = document.createElement('div');
+        listItem.className = 'app-item';
+        if (apps.length % 2 !== 0 && index === apps.length - 1) {
+            listItem.classList.add('last-odd-item');
+        }
+
+        const downloadButton = document.createElement('a');
+        const colorClass = colorClasses[index % colorClasses.length];
+        downloadButton.className = `btn ${colorClass}`;
+        downloadButton.href = app.url;
+        downloadButton.textContent = app.name;
+        listItem.appendChild(downloadButton);
+        appList.appendChild(listItem);
+    });
+
+    if (appContainer) {
+        appContainer.replaceWith(appList);
+    }
+});
+</script>
+
+<!☘️ Nhật ký cập nhật >
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const contentElement = document.getElementById('content');
+    if (contentElement) {
+        
+        const updateLog = `
+- 2024-05-20: Ra mắt phiên bản 2.0 của Tech Hub.
+- 2024-05-15: Thêm Công Cụ A và Plugin B.
+- 2024-05-10: Cập nhật thư viện tài nguyên.
+- 2024-05-01: Khởi chạy trang web Tech Hub.
+        `.trim();
+
+        const lines = updateLog.split('\n').filter(line => line.trim() !== '');
+        const listItems = lines.map(line => `<li>${line.trim()}</li>`).join('');
+        contentElement.innerHTML = `<ul style="font-family: Arial, sans-serif; font-size: 16px; list-style-type: none; padding-left: 0;">${listItems}</ul>`;
+    }
+});
+</script>
+
+</body>
+</html>
